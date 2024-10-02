@@ -4,7 +4,8 @@ import requests
 def YouTubeVideoDownloader(url, save_path='.'):
     try:
         yt_opts = {
-            'outtmpl': f'{save_path}/video.mp4'          # yt-dlp best version is 2024.08.01, 2024.08.06
+            'outtmpl': f'{save_path}/video.mp4',          # yt-dlp best version is 2024.08.01, 2024.08.06
+            'format': 'best[ext=mp4]'
         }
         with yt_dlp.YoutubeDL(yt_opts) as yt:
             yt.download([url])
